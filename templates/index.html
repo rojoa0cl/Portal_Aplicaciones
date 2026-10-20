@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Aplicaciones</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- SLIM HEADER -->
+    <header class="navbar">
+        <div class="brand-wrapper">
+            <div class="brand-logo-box">
+                <i class="fa-solid fa-cube"></i>
+            </div>
+            <h1 class="brand-title">Portal de Aplicaciones</h1>
+            <span class="brand-badge">Local</span>
+        </div>
+        <div class="nav-actions">
+            <button class="btn btn-slim-primary" onclick="openNewModal()">
+                <i class="fa-solid fa-plus"></i> Nueva Aplicación
+            </button>
+            <button class="btn-icon" style="color: #cbd5e1;" onclick="fetchStatuses(); showToast('Estados sincronizados', 'info');" title="Refrescar Estados">
+                <i class="fa-solid fa-rotate"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- SUBBAR WITH UNDERLINE TABS & SEARCH -->
+    <section class="subbar">
+        <nav class="category-tabs" id="category-pills">
+            <!-- Rendered by JS -->
+        </nav>
+        <div class="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="search-input" class="search-input" placeholder="Filtrar por nombre...">
+        </div>
+    </section>
+
+    <!-- MAIN APP GRID -->
+    <main class="container">
+        <div class="app-grid" id="app-grid">
+            <!-- App cards rendered dynamically -->
+        </div>
+    </main>
+
+    <!-- MANTENEDOR MODAL -->
+    <div class="modal-overlay" id="app-modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="modal-title">Nueva Aplicación</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="app-form">
+                <div class="modal-body">
+                    <input type="hidden" id="app-id">
+
+                    <div class="form-grid">
+                        <div class="form-group span-2">
+                            <label for="app-name">Nombre *</label>
+                            <input type="text" id="app-name" class="form-control" placeholder="Ej: Control de Planchas" required>
+                        </div>
+
+                        <div class="form-group span-2">
+                            <label for="app-desc">Descripción</label>
+                            <input type="text" id="app-desc" class="form-control" placeholder="Ej: Sistema de verificación y control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="app-category">Categoría</label>
+                            <input type="text" id="app-category" class="form-control" placeholder="Ej: Producción, Sistemas">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="app-icon">Ícono (FontAwesome)</label>
+                            <input type="text" id="app-icon" class="form-control" placeholder="fa-solid fa-cube" value="fa-solid fa-cube">
+                        </div>
+
+                        <div class="form-group span-2">
+                            <label for="app-type">Tipo de Aplicación</label>
+                            <select id="app-type" class="form-control" onchange="toggleTypeFields()">
+                                <option value="file">Archivo HTML Local</option>
+                                <option value="service">Servidor Web Local (Flask / Python)</option>
+                                <option value="external">Enlace Web Externo</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group span-2">
+                            <label for="app-target">URL de Destino</label>
+                            <input type="text" id="app-target" class="form-control" placeholder="http://localhost:5050/ o file:///C:/...">
+                        </div>
+
+                        <div class="form-group span-2">
+                            <label for="app-local-path">Ruta Local del Archivo</label>
+                            <input type="text" id="app-local-path" class="form-control" placeholder="C:\andres\Onzatroy\hermanado_app.html">
+                        </div>
+
+                        <!-- Campos para Servidores Locales -->
+                        <div id="server-fields" style="display: none;">
+                            <div class="form-group">
+                                <label for="app-port">Puerto</label>
+                                <input type="number" id="app-port" class="form-control" placeholder="5050">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="app-cwd">Carpeta de Ejecución</label>
+                                <input type="text" id="app-cwd" class="form-control" placeholder="C:\andres\diplomas\DiplomasUAI">
+                            </div>
+
+                            <div class="form-group span-2">
+                                <label for="app-cmd">Comando de Inicio</label>
+                                <input type="text" id="app-cmd" class="form-control" placeholder="python web_app.py">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-ghost" onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast"></div>
+
+    <script src="{{ url_for('static', filename='js/hub.js') }}"></script>
+</body>
+</html>

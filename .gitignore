@@ -1,0 +1,12 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entorno de desarrollo
+.vscode/
+.idea/
+
+# Logs y temporales
+*.log
+subir_a_github.bat

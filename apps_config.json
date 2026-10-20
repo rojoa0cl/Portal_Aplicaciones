@@ -1,0 +1,80 @@
+[
+  {
+    "id": "onzatroy",
+    "name": "Onzatroy",
+    "description": "Sistema de hermanado",
+    "category": "Producción",
+    "icon": "fa-solid fa-layer-group",
+    "type": "file",
+    "target": "file:///C:/andres/Onzatroy/hermanado_app.html",
+    "local_path": "C:\\andres\\Onzatroy\\hermanado_app.html",
+    "port": null,
+    "cwd": "",
+    "cmd": ""
+  },
+  {
+    "id": "diplomas",
+    "name": "Plataforma Diplomas",
+    "description": "Diplomas",
+    "category": "Diplomas",
+    "icon": "fa-solid fa-graduation-cap",
+    "type": "service",
+    "target": "http://localhost:5050/",
+    "local_path": "",
+    "port": 5050,
+    "cwd": "C:\\andres\\diplomas\\DiplomasUAI",
+    "cmd": "python web_app.py"
+  },
+  {
+    "id": "impresoras",
+    "name": "Administración Impresoras",
+    "description": "Tickets de Impresoras IV",
+    "category": "Sistemas",
+    "icon": "fa-solid fa-print",
+    "type": "service",
+    "target": "http://localhost:5000/",
+    "local_path": "",
+    "port": 5000,
+    "cwd": "C:\\andres\\impresoras",
+    "cmd": "python app.py"
+  },
+  {
+    "id": "3placa",
+    "name": "Tercera Placa (BIDEX)",
+    "description": "Tercera Placa",
+    "category": "Tercera Placa",
+    "icon": "fa-solid fa-id-card",
+    "type": "file",
+    "target": "file:///C:/andres/3placa/bidex.html",
+    "local_path": "C:\\andres\\3placa\\bidex.html",
+    "port": 8080,
+    "cwd": "C:\\andres\\3placa\\Web_App",
+    "cmd": "python app.py"
+  },
+  {
+    "id": "folios",
+    "name": "Gestión Folios V2",
+    "description": "Control de folios",
+    "category": "Folios",
+    "icon": "fa-solid fa-file-lines",
+    "type": "file",
+    "target": "file:///C:/andres/folios/index.html",
+    "local_path": "C:\\andres\\folios\\index.html",
+    "port": null,
+    "cwd": "",
+    "cmd": ""
+  },
+  {
+    "id": "infracciones",
+    "name": "Generación de Folios",
+    "description": "Generador de Folios",
+    "category": "Folios",
+    "icon": "fa-solid fa-scale-balanced",
+    "type": "file",
+    "target": "file:///C:/andres/Infracciones%20Leves%20Sobre%20la%20Plancha/Generador_Infracciones_Web/index.html",
+    "local_path": "C:\\andres\\Infracciones Leves Sobre la Plancha\\Generador_Infracciones_Web\\index.html",
+    "port": null,
+    "cwd": "",
+    "cmd": ""
+  }
+]
